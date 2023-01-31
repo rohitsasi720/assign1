@@ -22,7 +22,7 @@
                         <select class="form-select" name="filter" id="filter">
                             <option selected>Tap to filter</option>
                             <option value="Clothing">Clothing</option>
-                            <option value="Shoe">Shoe</option>
+                            <option value="Footwear">Footwear</option>
                             <option value="Electronic">Electronic</option>
                             <option value="Book">Book</option>
                         </select>
@@ -32,9 +32,11 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Product id</th>
-                                    <th>Brand name</th>
-                                    <th>Product Category</th>
+                                    <th>Title</th>
+                                    <th>Brand</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Image</th>
                                     <th>RUD Operations</th>
                                 </tr>
                             </thead>
@@ -49,15 +51,19 @@
                                         {
                                             ?>
                                 <tr>
-                                    <td><?= $product['id']; ?></td>
+                                    <td><?= $product['title']; ?></td>
                                     <td><?= $product['name']; ?></td>
                                     <td><?= $product['category']; ?></td>
+                                    <td><?= $product['price']; ?></td>
+                                    <td><img src="<?= "upload/".$product['image']; ?>" width="175px"
+                                            alt="<?= $product['title'];?>"></td>
                                     <td>
                                         <a href="view.php?id=<?= $product['id']; ?>"
                                             class="btn btn-info btn-sm">View</a>
                                         <a href="edit.php?id=<?= $product['id']; ?>"
                                             class="btn btn-success btn-sm">Edit</a>
                                         <form action="code.php" method="POST" class="d-inline">
+                                            <input type="hidden" name="del_image" value="<?=$product['image'];?>">
                                             <button type="submit" name="delete_product" value="<?=$product['id'];?>"
                                                 class="btn btn-danger btn-sm">Delete</button>
                                         </form>

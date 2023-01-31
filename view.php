@@ -31,15 +31,34 @@ require 'partials/header.php';
                                 ?>
 
                         <div class="mb-3">
-                            <label>Product brand name</label>
+                            <label>Title</label>
+                            <p class="form-control">
+                                <?=$product['title'];?>
+                            </p>
+                        </div>
+                        <div class="mb-3">
+                            <label>Brand</label>
                             <p class="form-control">
                                 <?=$product['name'];?>
                             </p>
                         </div>
                         <div class="mb-3">
-                            <label>Product Category</label>
+                            <label>Category</label>
                             <p class="form-control">
                                 <?=$product['category'];?>
+                            </p>
+                        </div>
+                        <div class="mb-3">
+                            <label>Price</label>
+                            <p class="form-control">
+                                <?=$product['price'];?>
+                            </p>
+                        </div>
+                        <div class="mb-3">
+                            <label>Image</label>
+                            <p class="form-control">
+                                <img src="<?= "upload/".$product['image']; ?>" width="175px"
+                                    alt="<?= $product['title'];?>">
                             </p>
                         </div>
 

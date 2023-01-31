@@ -31,22 +31,37 @@ require 'partials/header.php';
                             {
                                 $product = mysqli_fetch_array($query_run);
                                 ?>
-                        <form action="code.php" method="POST">
+                        <form action="code.php" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="id" value="<?= $product['id']; ?>">
 
                             <div class="mb-3">
-                                <label>Product Brand name</label>
+                                <label>Title</label>
+                                <input type="text" name="title" value="<?=$product['title'];?>" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label>Brand</label>
                                 <input type="text" name="name" value="<?=$product['name'];?>" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label>Product Category</label>
+                                <label>Category</label>
                                 <select class="form-select" name="category">
-                                    <option selected>Select Category</option>
+                                    <option selected value="<?=$product['category'];?>">Select Category</option>
                                     <option value="Clothing">Clothing</option>
-                                    <option value="Shoe">Shoe</option>
+                                    <option value="Footwear">Footwear</option>
                                     <option value="Electronic">Electronics</option>
                                     <option value="Book">Books</option>
                                 </select>
+                            </div>
+                            <div class="mb-3">
+                                <label>Price</label>
+                                <input type="text" name="price" value="<?=$product['price'];?>" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label>Image</label>
+                                <input type="file" accept="image/*" name="image" id="image" class="form-control">
+
+                                <input type="hidden" accept="image/*" name="oldimage" value="<?=$product['image'];?>"
+                                    class="form-control">
                             </div>
                             <div class="mb-3">
                                 <button type="submit" name="update_product" class="btn btn-primary">

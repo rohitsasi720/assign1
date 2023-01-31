@@ -25,7 +25,7 @@
                     <select class="form-select" name="filter" id="filter">
                         <option selected>Tap to filter</option>
                         <option value="Clothing">Clothing</option>
-                        <option value="Shoe">Shoe</option>
+                        <option value="Footwear">Footwear</option>
                         <option value="Electronic">Electronic</option>
                         <option value="Book">Book</option>
                     </select>
@@ -36,9 +36,11 @@ if($count){
     ?>
                     <thead>
                         <tr>
-                            <th>Product id</th>
+                            <th>Title</th>
                             <th>Brand name</th>
-                            <th>Product Category</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Image</th>
                             <th>RUD Operations</th>
                         </tr>
                         <?php }
@@ -52,9 +54,12 @@ if($count){
     while($product= mysqli_fetch_assoc($result)){
         ?>
                         <tr>
-                            <td><?= $product['id']; ?></td>
+                            <td><?= $product['title']; ?></td>
                             <td><?= $product['name']; ?></td>
                             <td><?= $product['category']; ?></td>
+                            <td><?= $product['price']; ?></td>
+                            <td><img src="<?= "upload/".$product['image']; ?>" width="175px"
+                                    alt="<?= $product['title'];?>"></td>
                             <td>
                                 <a href="view.php?id=<?= $product['id']; ?>" class="btn btn-info btn-sm">View</a>
                                 <a href="edit.php?id=<?= $product['id']; ?>" class="btn btn-success btn-sm">Edit</a>
