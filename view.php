@@ -76,4 +76,5 @@ require 'partials/header.php';
 
         <?php require 'recommendation.php'; ?>
         <?php require 'related.php'; ?>
-        <?php require 'partials/footer.php';?>
+    </div>
+    <?php require 'partials/footer.php';?>
