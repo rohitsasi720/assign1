@@ -1,7 +1,6 @@
 <?php
 require 'dbcon.php';
 require 'partials/header.php';
-
 ?>
 
 <body>
@@ -74,5 +73,7 @@ require 'partials/header.php';
                 </div>
             </div>
         </div>
-    </div>
-    <?php require 'partials/footer.php';?>
+
+        <?php require 'recommendation.php'; ?>
+        <?php require 'related.php'; ?>
+        <?php require 'partials/footer.php';?>
