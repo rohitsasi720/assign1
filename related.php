@@ -4,10 +4,10 @@
                 $category = mysqli_real_escape_string($con,$product['category']);
                 
                 if(isset($idd)){
-                    $sql = "SELECT * FROM products WHERE LOWER(title) LIKE '%".strtolower($title)."%' AND id != '$id' AND id NOT IN '$idd' AND category='$category'";
+                    $sql = "SELECT * FROM products WHERE id != '$id' AND id NOT IN '$idd' AND category='$category'";
                 }
                 else{
-                    $sql = "SELECT * FROM products WHERE LOWER(title) LIKE '%".strtolower($title)."%' AND id != '$id' AND category='$category'";
+                    $sql = "SELECT * FROM products WHERE id != '$id' AND category='$category'";
                 }  
                   $result = mysqli_query($con,$sql);
                   if(mysqli_num_rows($result) > 0)
@@ -19,14 +19,15 @@
                 </div>';
                 echo '<div class="container my-3">
             <div class="row my-4">
-                <div class="col-sm-4">';
+            ';
                   while($row=mysqli_fetch_assoc($result)){
                   $image = $row['image'];
                   $brand = $row['name'];
                   $title = $row['title'];
                   $price = $row['price'];
                   $id= $row['id'];
-                  echo '<div class=" col-md-3 my-2">
+                  echo '<div class="col-sm-4">
+                  <div class=" col-md-3 my-2">
                             <div class="card" style="width: 18rem; border: none; outline: none; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);">
                                 <img src="upload/'.$image.'" width="125px" style="display: block; margin-left: auto; margin-right: auto;" alt="<?= $title;?>
 <div class="card-body">

@@ -15,8 +15,7 @@
                     </p>
                 </div>';
                 echo '<div class="container my-3">
-                <div class="row my-4">
-    <div class="col-sm-4">';
+                <div class="row my-4">';
     $idd = array();
 while($row=mysqli_fetch_assoc($result))
 {
@@ -28,7 +27,8 @@ $id = $row['id'];
 array_push($idd, $row['id']);
 
 echo
-'<div class=" col-md-3 my-2"> 
+'<div class="col-sm-4">
+<div class=" col-md-3 my-2"> 
 <div class="card" style="width: 18rem; border: none; outline: none; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);">
     <img src="upload/'.$image.'" width="150px" style="display: block; margin-left: auto; margin-right: auto;" alt="$title";
     <div class=" card-body">
