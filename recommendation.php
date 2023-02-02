@@ -1,8 +1,16 @@
 <?php
                 $id = $product['id'];
                 $title = mysqli_real_escape_string($con,$product['title']);
-                
-                  $sql = "SELECT * FROM products WHERE LOWER(title) LIKE '%".strtolower($title)."%' AND id != '$id'";
+                $category = mysqli_real_escape_string($con,$product['category']);
+                $price = mysqli_real_escape_string($con,$product['price']);
+
+                if(isset($idd)) {
+                    $sql = "SELECT * FROM products WHERE price BETWEEN 0.7*('$price') AND ('$price') AND id != '$id' AND id != '$idd' AND category='$category'";  
+                }
+                  else{
+                    $sql = "SELECT * FROM products WHERE price BETWEEN 0.7*('$price') AND ('$price') AND id != '$id' AND category='$category'"; 
+                  }
+
                   $result = mysqli_query($con,$sql);
 
                   if(mysqli_num_rows($result) > 0)
