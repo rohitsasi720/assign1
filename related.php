@@ -3,7 +3,12 @@
                 $price = mysqli_real_escape_string($con,$product['price']);
                 $category = mysqli_real_escape_string($con,$product['category']);
                 
-                $sql = "SELECT * FROM products WHERE LOWER(title) LIKE '%".strtolower($title)."%' AND id != '$id' AND category='$category'";
+                if(isset($idd)){
+                    $sql = "SELECT * FROM products WHERE LOWER(title) LIKE '%".strtolower($title)."%' AND id != '$id' AND id NOT IN '$idd' AND category='$category'";
+                }
+                else{
+                    $sql = "SELECT * FROM products WHERE LOWER(title) LIKE '%".strtolower($title)."%' AND id != '$id' AND category='$category'";
+                }  
                   $result = mysqli_query($con,$sql);
                   if(mysqli_num_rows($result) > 0)
                   {
