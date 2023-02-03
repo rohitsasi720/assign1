@@ -3,7 +3,7 @@
 if(isset($_POST['delete_product']))
 {
     $product_id = mysqli_real_escape_string($con, $_POST['delete_product']);
-$product_image = mysqli_real_escape_string($con, $_POST['del_image']);
+    $product_image = mysqli_real_escape_string($con, $_POST['del_image']);
     $query = "DELETE FROM products WHERE id='$product_id' ";
     $query_run = mysqli_query($con, $query);
 

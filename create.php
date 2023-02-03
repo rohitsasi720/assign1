@@ -5,10 +5,14 @@ require 'partials/header.php';
 
 
 <body>
-
     <div class="container mt-5">
 
         <?php include('message.php'); ?>
+
+        <?php if($_SESSION['loggedin']==false) {
+    $_SESSION['message'] = "Signup / Login to Add products";
+    header("Location: index.php");
+    }?>
 
         <div class="row">
             <div class="col-md-12">

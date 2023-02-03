@@ -22,7 +22,7 @@ if(isset($_POST['save_product']))
     else
     {
 
-        if(file_exists("upload/" . $_FILES['image']['name'] ))
+        if(file_exists("upload/".$_FILES['image']['name'] ))
         {
             $filename = $_FILES['image']['name'];
             $_SESSION['message'] = 'Image already exist '.$filename;

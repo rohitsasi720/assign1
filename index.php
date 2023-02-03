@@ -2,6 +2,7 @@
     session_start();
     require 'dbcon.php';
     require 'partials/header.php';
+    require 'partials/nav.php';
 ?>
 
 <body>
@@ -58,6 +59,8 @@
                                     <td><img src="<?= "upload/".$product['image']; ?>" width="175px"
                                             alt="<?= $product['title'];?>"></td>
                                     <td>
+
+                                        <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){?>
                                         <a href="view.php?id=<?= $product['id']; ?>"
                                             class="btn btn-info btn-sm">View</a>
                                         <a href="edit.php?id=<?= $product['id']; ?>"
@@ -66,7 +69,27 @@
                                             <input type="hidden" name="del_image" value="<?=$product['image'];?>">
                                             <button type="submit" name="delete_product" value="<?=$product['id'];?>"
                                                 class="btn btn-danger btn-sm">Delete</button>
+
                                         </form>
+                                        <?php }
+                                        else {?>
+                                        <a href="view.php?id=<?= $product['id']; ?>" class="btn btn-info btn-sm my-2"
+                                            style="margin: 0 auto; display: block;padding: 6px 1px;">View</a>
+                                        <div class="d-inline-block" tabindex="0" data-toggle="tooltip"
+                                            data-placement="bottom" title="Login / Signup to Edit">
+                                            <button type="button" class="btn btn-success" style="pointer-events: none;"
+                                                disabled>
+                                                Edit
+                                            </button>
+                                        </div>
+                                        <div class="d-inline-block mx-2" tabindex="0" data-toggle="tooltip"
+                                            data-placement="bottom" title="Login / Signup to Delete">
+                                            <button type="button" class="btn btn-danger" style="pointer-events: none;"
+                                                disabled>
+                                                Delete
+                                            </button>
+                                        </div>
+                                        <?php }?>
                                     </td>
                                 </tr>
                                 <?php
@@ -91,7 +114,11 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-
+    <script>
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+    </script>
     <?php 
     require 'partials/footer.php';
     ?>

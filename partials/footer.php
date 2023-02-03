@@ -10,6 +10,7 @@ $(document).ready(function() {
     $('#products').DataTable();
 });
 </script>
+
 </body>
 
 </html>

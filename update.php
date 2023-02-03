@@ -70,5 +70,4 @@ if(file_exists("upload/".$_FILES['image']['name'] ))
             }  
         }
 }
-
 ?>
